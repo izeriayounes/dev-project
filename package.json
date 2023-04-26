@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --watch app.js config.js"
+    "dev": "nodemon --watch app.js"
   },
   "type": "module",
   "author": "",
