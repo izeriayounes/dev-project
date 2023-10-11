@@ -1,0 +1,81 @@
+<%- include('partials/header') %>
+<section class="gradient-custom">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card mx-auto bg-dark text-white h-75">
+          <div class="card-body p-5 text-center">
+            <div class="mb-5">
+              <h2 class="fw-bold mb-2 text-uppercase text-white">Sign up</h2>
+              <p class="text-white-50 mb-5">Create your account. It only takes one minute!</p>
+              <form action="/register" method="POST">
+
+                <div class="form-outline form-white mb-4">
+                  <input id="username" type="username" class="form-control form-control-lg" name="username" placeholder="Username" required>
+                  <small class="text-danger" id="error-message">*Username must be alphanumeric 6-24 characters.</small>
+                  <small class="text-danger"><%= usernameTaken %> </small>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Password" required>
+                  <small class="text-danger" id="passwordLength" style="display: none;">*password should be at least 6 characters!</small>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <input type="password" id="confirmPassword" class="form-control form-control-lg" name="confirmPassword" placeholder="Confirm password" required>
+                  <small class="text-danger" id="passwordMatchError" style="display: none;">*Passwords do not match!</small>
+                </div>
+
+                <button class="btn btn-outline-light btn-md px-5" id="register-btn" type="submit">Register</button>
+              </form>
+            </div>
+
+            <div>
+              <p class="mb-0">Already have an account? <a href="/login" class="text-white-50 fw-bold">Login</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirmPassword');
+  const passwordMatchError = document.getElementById('passwordMatchError');
+  const passwordLength = document.getElementById('passwordLength');
+  const submitButton = document.querySelector('button');
+  const username = document.getElementById("username");
+  const regex = /^[a-zA-Z0-9_]{3,20}$/; // Regular expression for username validation
+
+  function checkPasswordMatch() {
+    if (passwordInput.value !== confirmPasswordInput.value) {
+      passwordMatchError.style.display = 'block';
+      submitButton.disabled = true;
+    } else {
+      passwordMatchError.style.display = 'none';
+      validateUsername(); // Check the username as well
+    }
+  }
+
+  function validateUsername() {
+    if (regex.test(username.value)) {
+      document.getElementById("error-message").style.display = "none";
+      submitButton.disabled = false;
+    } else {
+      document.getElementById("error-message").style.display = "block";
+      submitButton.disabled = true;
+    }
+  }
+
+  username.addEventListener('input', validateUsername);
+  passwordInput.addEventListener('input', checkPasswordMatch);
+  confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+</script>
+
+<%- include('partials/footer') %>

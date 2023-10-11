@@ -1,20 +1,27 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getFirestore } from 'firebase/firestore/lite';
+import { collection, getFirestore, getDocs, query, where } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAzvVgvpFL540CyMGFJ8fr_7hta4d9BLkQ",
-    authDomain: "rpi-firestore-c73f2.firebaseapp.com",
-    projectId: "rpi-firestore-c73f2",
-    storageBucket: "rpi-firestore-c73f2.appspot.com",
-    messagingSenderId: "1006044062665",
-    appId: "1:1006044062665:web:1ff53dc012b2e72bfd3e18"
-  };
+
+  apiKey: "AIzaSyAppIcssjxVQDF9va6L-wVPPTDff2i8Rqk",
+
+  authDomain: "dev-project-f500d.firebaseapp.com",
+
+  projectId: "dev-project-f500d",
+
+  storageBucket: "dev-project-f500d.appspot.com",
+
+  messagingSenderId: "640524870334",
+
+  appId: "1:640524870334:web:0a1a07fb8a1474bec834ef"
+
+};  
   
-  
-  // Initialize Firebase
+// Initialize Firebase
   
 const server = initializeApp(firebaseConfig);
 const db = getFirestore();
 const User = collection(db, "system");
 
-export {db, User, server}
+
+export {db, User, server};

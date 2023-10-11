@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+
+<div class="vh-100 gradient-custom" >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100" >
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+            <div class="card text-center bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body px-5">
+                    <p class="card-text py-2">
+                        Enter your email address and we'll send you an email with instructions to reset your password.
+                    </p>
+                    <form action="/reset-password" method="POST">
+
+                        <div class="form-outline mb-5">
+                            <input type="email" class="form-control my-3" placeholder="Enter your email" name="email"/>
+                        </div>
+                        <button class="btn btn-outline-light btn-md px-5 mb-5" type="submit">Reset password</button>
+
+                    </form>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a class="text-white-50 fw-bold" href="/login">Login</a>
+                        <a class="text-white-50 fw-bold" href="/register">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

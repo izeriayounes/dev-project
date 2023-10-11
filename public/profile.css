@@ -1,28 +1,5 @@
 body {
     background-color: #E8ECEF;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-footer {
-    background-color: lightgray;
-    margin-bottom: 0;       
-}
-
-.gradient-custom {
-    flex: 1;
-}
-
-.text-danger {
-    text-align: left;
-    display: none;
-}
-
-.forgot-pass {
-    text-align: right;
-    display: block;
-    padding: 3px 0;
 }
 
 .card-header:first-child {
@@ -59,7 +36,10 @@ footer {
 .middle-container{
 	background-color: #eee;
 	border-radius: 12px;
-
+}
+.top-container, .middle-container, a{
+	width: 80%;
+	margin: 0 auto; 
 }
 .middle-container:hover {
 	border: 1px solid #5957f9;
